@@ -1105,9 +1105,9 @@ bool Blockchain::create_block_template(block& b, const account_public_address& m
   b.prev_id = get_tail_id();
   b.timestamp = time(NULL);
 
-  MDEBUG("Creating block template: height " << height <<
+  MINFO("Creating block template: height " << height <<
 	  ", version " << (unsigned)b.major_version << "-" << (unsigned)b.minor_version <<
-	  ", tail id " << b.prev_id);
+	  ", tail id " << b.prev_id << " timestamp " << b.timestamp);
 
   diffic = get_difficulty_for_next_block();
   CHECK_AND_ASSERT_MES(diffic, false, "difficulty overhead.");
