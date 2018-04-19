@@ -1105,7 +1105,7 @@ bool Blockchain::create_block_template(block& b, const account_public_address& m
   b.prev_id = get_tail_id();
   b.timestamp = time(NULL);
 
-  MINFO("Creating block template: height " << height <<
+  LOG_PRINT_L0("Creating block template: height " << height <<
 	  ", version " << (unsigned)b.major_version << "-" << (unsigned)b.minor_version <<
 	  ", tail id " << b.prev_id << " timestamp " << b.timestamp);
 

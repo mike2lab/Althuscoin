@@ -997,14 +997,14 @@ namespace cryptonote
     // Fixing of high orphan issue for most pools
     // Thanks Boolberry!
     block b = AUTO_VAL_INIT(b);
-	MINFO("Parsing RPC block submission...");
+	LOG_PRINT_L0("Parsing RPC block submission...");
     if(!parse_and_validate_block_from_blob(blockblob, b))
     {
       error_resp.code = CORE_RPC_ERROR_CODE_WRONG_BLOCKBLOB;
       error_resp.message = "Wrong block blob";
       return false;
     }
-	MINFO("RPC block submission VALID. Timestamp: " << b.timestamp);
+	LOG_PRINT_L0("RPC block submission VALID. Timestamp: " << b.timestamp);
     // Fix from Boolberry neglects to check block
     // size, do that with the function below
     if(!m_core.check_incoming_block_size(blockblob))
